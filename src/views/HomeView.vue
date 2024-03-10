@@ -1,12 +1,12 @@
 <script setup  >
 import BannerSection from '@/components/Home/BannerSection.vue' ;
-import TopRooms from '@/components/Home/TopRooms.vue' ;
+import AllRooms from '@/components/Home/AllRooms.vue' ;
 </script>
 
 <template>
   <main>
     <BannerSection/>
-    <TopRooms/>
+    <AllRooms/>
     
   </main>
 </template>
