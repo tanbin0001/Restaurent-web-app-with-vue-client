@@ -1,7 +1,8 @@
 <template>
   <div>
    <div class="grid grid-cols-4 gap-3">
-    <div v-for="(room, index) in rooms" :key="index" class="px-4 py-8 shadow-lg max-w-[350px] font-sans rounded-xl space-y-6  mx-auto bg-white">
+     <div v-for="(room, index) in rooms" :key="index" class="px-4 py-8 shadow-lg max-w-[350px] font-sans rounded-xl space-y-6  mx-auto bg-white">
+      <router-link :to="{ name: 'roomDetails', params: { id: room.id } }"> 
           <div class="flex justify-center w-full h-48 lg:h-[280px] relative">
               <div class="flex justify-between items-center left-4 right-4 top-4 absolute">
              
@@ -16,6 +17,7 @@
           <!-- <div class="flex items-center justify-center flex-wrap gap-6 text-sm md:text-base">
               <button class="px-4 py-2 rounded-lg bg-[#49B2FF] hover:bg-sky-600 duration-300 hover:scale-105 text-white font-semibold font-sans">Buy now</button>
           </div> -->
+        </router-link>
       </div>
    </div>
   </div>
@@ -38,6 +40,7 @@ export default {
         const response = await fetch('https://raw.githubusercontent.com/tanbin0001/airbnb-data/main/data/rooms.json');
         const data = await response.json();
         this.rooms = data;
+        console.log(data);
       } catch (error) {
         console.error('Error fetching rooms:', error);
       }
